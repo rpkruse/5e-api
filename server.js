@@ -46,14 +46,14 @@ app.use("/api/equipment-categories", require('./routes/equipment-categories'));
 
 
 // Connect to database and start the server
-mongoose.connect(process.env.MONGOLAB_URI, (err, database) => {
+mongoose.connect(process.env.MONGODB_URI, (err, database) => { //mongodb://<dbuser>:<dbpassword>@ds217671.mlab.com:17671/heroku_19xr8z6w //process.env.MONGODB_URI
   if (err) {
     console.log(err);
     process.exit(1);
   }
   console.log("Database connection ready");
 
-  var server = app.listen(process.env.PORT || 3000, () => {
+  var server = app.listen(process.ENV.PORT || 3000, () => {
     var port = server.address().port;
     console.log('Listening on port 3000!')
   })
