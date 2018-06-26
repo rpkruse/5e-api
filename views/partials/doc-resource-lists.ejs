@@ -1,0 +1,120 @@
+<h2 id="resource-lists">Resource Lists</h2>
+<p>Calling any API endpoint without a resource index or name will return a list of available resources for that API.</p>
+
+<h3>GET api/{endpoint}</h3>
+
+<pre><code>{
+  "count": 12,
+  "results": [
+    {
+      "name": "Acid Arrow",
+      "url": "http://dnd5eapi.co/api/spells/1"
+    },
+    {
+      "name": "Acid Splash",
+      "url": "http://dnd5eapi.co/api/spells/2"
+    },
+    {
+      "name": "Aid",
+      "url": "http://dnd5eapi.co/api/spells/3"
+    },
+    {
+      "name": "Alarm",
+      "url": "http://dnd5eapi.co/api/spells/4"
+    },
+    {
+      "name": "Alter Self",
+      "url": "http://dnd5eapi.co/api/spells/5"
+    },
+    {
+      "name": "Animal Messenger",
+      "url": "http://dnd5eapi.co/api/spells/6"
+    },
+    {
+      "name": "Animal Shapes",
+      "url": "http://dnd5eapi.co/api/spells/7"
+    },
+
+    ...
+
+  ]
+}
+</code></pre>
+
+<h4>NamedAPIResourceList</h4>
+
+<table>
+    <thead>
+        <tr>
+            <th align="left">Name</th>
+            <th align="left">Description</th>
+            <th align="left">Data Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td align="left">count</td>
+            <td align="left">Total number of resource available from this API</td>
+            <td align="left">integer</td>
+        </tr>
+        <tr>
+            <td align="left">results</td>
+            <td align="left">A list of named API resource lists</td>
+            <td align="left">list <a href="#namedapiresource">NamedAPIResource</a></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+<pre><code>{
+  "count": 12,
+  "results": [
+    {
+      "class": "Barbarian",
+      "url": "http://dnd5eapi.co/api/tables/1"
+    },
+    {
+      "class": "Bard",
+      "url": "http://dnd5eapi.co/api/tables/2"
+    },
+    {
+      "class": "Cleric",
+      "url": "http://dnd5eapi.co/api/tables/3"
+    },
+    {
+      "class": "Druid",
+      "url": "http://dnd5eapi.co/api/tables/4"
+    },
+    
+    ...
+
+  ]
+}
+</code></pre>
+
+<h4>ClassAPIResourceList</h4>
+
+<table>
+    <thead>
+        <tr>
+            <th align="left">Name</th>
+            <th align="left">Description</th>
+            <th align="left">Data Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td align="left">count</td>
+            <td align="left">Total number of resource available from this API</td>
+            <td align="left">integer</td>
+        </tr>
+        <tr>
+            <td align="left">results</td>
+            <td align="left">A list of class API resource lists</td>
+            <td align="left">list <a href="#namedapiresource">NamedAPIResource</a></td>
+        </tr>
+    </tbody>
+</table>
