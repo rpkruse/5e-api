@@ -59,7 +59,6 @@ router
   } 
 
   else if (utility.isProficiencyCategory(req.params.index) === true) {
-    console.log(req.params.index)
     Model.find( { 'type': utility.proficiency_map[req.params.index] }, (err,data) => {
       if (err) {
         res.send(err);

@@ -67,7 +67,6 @@ levelRouter
   if (typeof(parseInt(req.params.level) == Number)) {
 
     let urlString = "http://dnd5eapi.co/api/subclasses/" + req.params.index + "/level/" + req.params.level;
-    console.log(urlString);
     
     LevelModel.findOne({'url': urlString}, (err,data) => {
       if (err) {
@@ -86,7 +85,6 @@ var LevelModel = require('../models/level');
 
 levelRouter2
 .get('/', (req, res) => {
-    console.log(req.params.index);
     LevelModel.find({'subclass.name': utility.subclass_map[req.params.index]}, (err,data) => {
       if (err) {
         res.send(err);

@@ -26,7 +26,6 @@ router
 
 
   if (utility.isClassName(req.params.index) === true) {
-    console.log(utility.upperFirst(req.params.index))
     Model.find( { 
         'class.name': utility.upperFirst(req.params.index), 
         'subclass.name': undefined,
@@ -44,7 +43,6 @@ router
   } 
 
   else if (utility.isSubclassName(req.params.index) === true) {
-    console.log(utility.subclass_map[req.params.index])
     Model.find( { 
         'subclass.name': utility.subclass_map[req.params.index],
         'group': undefined }, (err,data) => {
