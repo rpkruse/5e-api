@@ -31,6 +31,8 @@ function classToIndex(class_name) {
         return 11;
         case "wizard":
         return 12;
+        case "shaman":
+        return 13;
         default:
         return 0;
     }
@@ -85,7 +87,7 @@ function classToURL(class_name) {
 }
 
 var class_names = ["barbarian","bard","cleric","druid","fighter",
-        "monk","paladin","ranger","rogue","sorcerer","warlock","wizard"]
+        "monk","paladin","ranger","rogue","sorcerer","warlock","wizard", "shaman"]
 
 var class_map = {}
 class_map[class_names[0]] = "Barbarian"
@@ -100,10 +102,11 @@ class_map[class_names[8]] = "Rogue"
 class_map[class_names[9]] = "Sorcerer"
 class_map[class_names[10]] = "Warlock"
 class_map[class_names[11]] = "Wizard"
+class_map[class_names[12]] = "Shaman"
 
 
 var subclass_names = ["berserker", "lore", "life", "land", "champion", "openhand", "devotion", "hunter",
-"thief", "draconic", "fiend", "evocation"]
+"thief", "draconic", "fiend", "evocation", "Path of the Elements", "Path of the Four Spirits"]
 
 var subclass_map = {}
 subclass_map[subclass_names[0]] = "Berserker"
@@ -118,6 +121,8 @@ subclass_map[subclass_names[8]] = "Thief"
 subclass_map[subclass_names[9]] = "Draconic"
 subclass_map[subclass_names[10]] = "Fiend"
 subclass_map[subclass_names[11]] = "Evocation"
+subclass_map[subclass_names[12]] = "Path of the Elements"
+subclass_map[subclass_names[13]] = "Path of the Four Spirits"
 
 
 
@@ -160,7 +165,6 @@ function isClassName(class_name) {
 }
 
 function isSubclassName(subclass_name) {
-
     let bool = false;
 
     subclass_names.forEach(function(element) {
