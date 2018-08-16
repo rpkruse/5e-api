@@ -44,6 +44,8 @@ app.use("/api/skills", require('./routes/skills'));
 app.use("/api/weapon-properties", require('./routes/weapon-properties'));
 app.use("/api/equipment-categories", require('./routes/equipment-categories'));
 app.use("/api/xp",  require('./routes/xp'));
+app.use("/api/monster-xp",  require('./routes/monster-xp'));
+
 
 
 // Connect to database and start the server
