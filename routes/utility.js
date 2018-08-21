@@ -33,6 +33,8 @@ function classToIndex(class_name) {
         return 12;
         case "shaman":
         return 13;
+        case "artificer":
+        return 14
         default:
         return 0;
     }
@@ -77,17 +79,23 @@ function indexToClass(class_name) {
     case 12:
     return "wizard";
 
+    case 13:
+    return "shaman";
+
+    case 14:
+    return "artificer"
+
     default:
     return "none";
   }
 }
 
 function classToURL(class_name) {
-    return "http://dnd5eapi.co/api/classes/" + classToIndex(class_name);
+    return "https://dnd-5e-api.herokuapp.com/api/classes/" + classToIndex(class_name);
 }
 
 var class_names = ["barbarian","bard","cleric","druid","fighter",
-        "monk","paladin","ranger","rogue","sorcerer","warlock","wizard", "shaman"]
+        "monk","paladin","ranger","rogue","sorcerer","warlock","wizard", "shaman", "artificer"]
 
 var class_map = {}
 class_map[class_names[0]] = "Barbarian"
@@ -103,10 +111,11 @@ class_map[class_names[9]] = "Sorcerer"
 class_map[class_names[10]] = "Warlock"
 class_map[class_names[11]] = "Wizard"
 class_map[class_names[12]] = "Shaman"
+class_map[class_names[12]] = "Artificer"
 
 
 var subclass_names = ["berserker", "lore", "life", "land", "champion", "openhand", "devotion", "hunter",
-"thief", "draconic", "fiend", "evocation", "Path of the Elements", "Path of the Four Spirits"]
+"thief", "draconic", "fiend", "evocation", "path of the elements", "path of the four spirits", "alchemist", "gunsmith", "mechanist"]
 
 var subclass_map = {}
 subclass_map[subclass_names[0]] = "Berserker"
@@ -121,8 +130,11 @@ subclass_map[subclass_names[8]] = "Thief"
 subclass_map[subclass_names[9]] = "Draconic"
 subclass_map[subclass_names[10]] = "Fiend"
 subclass_map[subclass_names[11]] = "Evocation"
-subclass_map[subclass_names[12]] = "Path of the Elements"
-subclass_map[subclass_names[13]] = "Path of the Four Spirits"
+subclass_map[subclass_names[12]] = "Path of the elements"
+subclass_map[subclass_names[13]] = "Path of the four spirits"
+subclass_map[subclass_names[14]] = "Alchemist"
+subclass_map[subclass_names[15]] = "Gunsmith"
+subclass_map[subclass_names[16]] = "Mechanist"
 
 
 
@@ -168,8 +180,10 @@ function isSubclassName(subclass_name) {
     let bool = false;
 
     subclass_names.forEach(function(element) {
+        console.log(subclass_name, element);
         if (subclass_name === element) {
             bool = true;
+            console.log("FOUND MATCH");
         }
     });
 

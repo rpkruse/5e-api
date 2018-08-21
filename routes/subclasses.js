@@ -63,15 +63,15 @@ var LevelModel = require('../models/level');
 levelRouter
 .get('/:level', (req, res) => {
 
-
   if (typeof(parseInt(req.params.level) == Number)) {
 
-    let urlString = "http://dnd5eapi.co/api/subclasses/" + req.params.index + "/level/" + req.params.level;
+    let urlString = "https://dnd-5e-api.herokuapp.com/api/subclasses/" + req.params.index + "/level/" + req.params.level;
     
     LevelModel.findOne({'url': urlString}, (err,data) => {
       if (err) {
         res.send(err);
       }
+      console.log(data);
       res.status(200).json(data);
     })
   } else {

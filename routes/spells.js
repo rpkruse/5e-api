@@ -68,18 +68,39 @@ router.use('/:index/level', levelRouter);
 levelRouter
 .get('/:level', (req, res) => {
 
-
   if (typeof(parseInt(req.params.level) == Number)) {
-    Model.find({'classes.name': utility.upperFirst(req.params.index), level: parseInt(req.params.level)}, (err,data) => {
-      if (err) {
-        res.send(err);
-      }
-    }).sort( {url: 'asc', level: 'asc'} ).exec((err,data) => {
-      if (err) {
-        res.send(err);
-      }
-      res.status(200).json(utility.NamedAPIResource(data));
-    })
+    if (utility.isClassName(req.params.index) === true) {
+      Model.find( { 'classes.name': utility.upperFirst(req.params.index), level: parseInt(req.params.level)}, (err,data) => {
+        if (err) {
+          res.send(err);
+        }
+      }).sort( {url: 'asc', level: 'asc'} ).exec((err,data) => {
+        if (err) {
+          res.send(err);
+        }
+        res.status(200).json(utility.NamedAPIResource(data));
+      })
+    }else if(utility.isSubclassName(req.params.index) === true) {
+      Model.find( { 'subclasses.name': utility.upperFirst(req.params.index), level: parseInt(req.params.level)},(err,data) => {
+        if (err) {
+          res.send(err);
+        }
+      }).sort( {url: 'asc', level: 'asc'} ).exec((err,data) => {
+        if (err) {
+          res.send(err);
+        }
+        res.status(200).json(utility.NamedAPIResource(data));
+      })
+    }
+    
+    else { // return specific document
+      Model.findOne( { index: parseInt(req.params.index) }, (err,data) => {
+        if (err) {
+          res.send(err);
+        }
+        res.status(200).json(data);
+      })
+    }
   } else {
       res.status(404)
   }
