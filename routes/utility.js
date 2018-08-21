@@ -115,7 +115,7 @@ class_map[class_names[12]] = "Artificer"
 
 
 var subclass_names = ["berserker", "lore", "life", "land", "champion", "openhand", "devotion", "hunter",
-"thief", "draconic", "fiend", "evocation", "path of the elements", "path of the four spirits", "alchemist", "gunsmith", "mechanist"]
+"thief", "draconic", "fiend", "evocation", "elemental", "spirit", "alchemist", "gunsmith", "mechanist"]
 
 var subclass_map = {}
 subclass_map[subclass_names[0]] = "Berserker"
@@ -130,8 +130,8 @@ subclass_map[subclass_names[8]] = "Thief"
 subclass_map[subclass_names[9]] = "Draconic"
 subclass_map[subclass_names[10]] = "Fiend"
 subclass_map[subclass_names[11]] = "Evocation"
-subclass_map[subclass_names[12]] = "Path of the elements"
-subclass_map[subclass_names[13]] = "Path of the four spirits"
+subclass_map[subclass_names[12]] = "Elemental"
+subclass_map[subclass_names[13]] = "Spirit"
 subclass_map[subclass_names[14]] = "Alchemist"
 subclass_map[subclass_names[15]] = "Gunsmith"
 subclass_map[subclass_names[16]] = "Mechanist"
@@ -180,10 +180,8 @@ function isSubclassName(subclass_name) {
     let bool = false;
 
     subclass_names.forEach(function(element) {
-        console.log(subclass_name, element);
         if (subclass_name === element) {
             bool = true;
-            console.log("FOUND MATCH");
         }
     });
 
